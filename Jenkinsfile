@@ -1,35 +1,19 @@
 pipeline {
-    agent any
+    agent none 
     stages {
-        stage ('Build') {
+        stage('Example Build') {
+            agent { docker 'maven:3.9.9-eclipse-temurin-21' } 
             steps {
-                script {
-                    sh """
-                       echo "Hello, this is build"
-                    """
-                }
-              
+                echo 'Hello, Maven'
+                sh 'mvn --version'
             }
         }
-        stage ('Test') {
+        stage('Example Test') {
+            agent { docker 'openjdk:21-jre' } 
             steps {
-                scrip{
-                    sh """
-                       echo "Hello, this is test"
-                    """
-                }
-        
+                echo 'Hello, JDK'
+                sh 'java -version'
             }
-        stage ('deploy') {
-            steps {
-                scrip{
-                    sh """
-                       echo "Hello, this is deploy"
-                    """
-                }
-        
-            }
-       }
+        }
     }
-
 }
