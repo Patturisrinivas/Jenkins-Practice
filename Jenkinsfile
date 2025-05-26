@@ -1,11 +1,16 @@
 pipeline {
     agent { label 'Joindevops-nodeJs' }
+    environment {
+        project = 'EXPENSE'
+        COMPONENT = 'BACKEND'
+    }
     stages {
         stage('Build') {
             steps {
                script{
                   sh """
                      echo 'Hello World this is build'
+                     echo "Project: $PROJECT"
                    """
                 }
             }
