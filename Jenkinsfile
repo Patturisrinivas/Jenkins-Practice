@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent { label 'Joindevops-nodeJs' }
     stages {
         stage('Build') {
             steps {
