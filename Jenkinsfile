@@ -24,6 +24,7 @@ pipeline {
                script{
                 sh """
                    echo 'hello world this test'
+                   sleep 30
                  """
                }
             }
@@ -33,6 +34,7 @@ pipeline {
                script{
                 sh """
                   echo 'hello world this is deployment'
+                  sleep 45
                 """
                } 
             }
